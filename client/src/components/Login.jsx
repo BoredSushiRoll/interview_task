@@ -2,34 +2,43 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../auth'
 
-function Login() {
+
+function Login({ setAuth }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('');
+
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
-    e.preventDefault() // THIS IS THE CRITICAL LINE
+    e.preventDefault() 
 
-    const success = login(username, password)
+    const success = login(username, password);
     if (success) {
-      navigate('/items')
+      setAuth(true);
+      navigate('/items');
+      
     } else {
-      alert('Invalid credentials')
+      setError('Invalid credentials')
     }
   }
 
   return (
     <div>
       <h2>Login</h2>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
+          name ="username"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="password"
+          name="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

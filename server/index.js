@@ -1,20 +1,30 @@
-const express = require('express')
-const cors = require('cors')
-const authRoutes = require('./routes/authRoutes')
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const authRoute = require('./routes/authRoutes');
+const itemsRoute = require('./routes/items');
+const app = express();
 
-const app = express()
-const PORT = 3001
 
-app.use(cors())
-app.use(express.json())
+app.use(cors({ 
+  origin: 'http://localhost:5173', 
+  credentials : true,
+  exposedHeaders: ['Authorization']
+}));
+app.use(express.json());
 
-//Mount routes
-app.use('/api', authRoutes)
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => console.log('MongoDB connected'))
+  .catch(err => console.error(err));
 
-app.get('/', (req, res) => {
-  res.send('API is running')
-})
+app.use('/items', itemsRoute);
+app.use(express.json());
+app.use('/', authRoute);
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`)
-})
+
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
