@@ -10,18 +10,18 @@ function Login({ setAuth }) {
 
   const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
-    e.preventDefault() 
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    const success = login(username, password);
-    if (success) {
-      setAuth(true);
-      navigate('/items');
-      
-    } else {
-      setError('Invalid credentials')
-    }
+  const success = await login(username, password); // << await it properly
+  if (success) {
+    setAuth(true);
+    navigate('/items');
+  } else {
+    setError('Invalid credentials');
   }
+};
+
 
   return (
     <div>

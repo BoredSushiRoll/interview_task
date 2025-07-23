@@ -4,7 +4,7 @@ const Item = require('../models/Item');
 const verifyToken = require('../middleware/authMiddleware');
 
 // Create new item
-router.post('/',  verifyToken, async (req, res) => {
+router.post('/', verifyToken, async (req, res) => {
   try {
     const newItem = new Item({ name: req.body.name });
     const savedItem = await newItem.save();
@@ -15,7 +15,7 @@ router.post('/',  verifyToken, async (req, res) => {
 });
 
 // Get all items
-router.get('/', verifyToken ,async (req, res) => {
+router.get('/', verifyToken, async (req, res) => {
   try {
     const items = await Item.find().sort({ createdAt: -1 });
     res.json(items);
@@ -24,10 +24,30 @@ router.get('/', verifyToken ,async (req, res) => {
   }
 });
 
-// Delete item
-router.delete('/:id',   verifyToken, async (req, res) => {
+// Update an item (edit)
+router.put('/:id', verifyToken, async (req, res) => {
   try {
-    await Item.findByIdAndDelete(req.params.id);
+    const updatedItem = await Item.findByIdAndUpdate(
+      req.params.id,
+      { name: req.body.name },
+      { new: true, runValidators: true }
+    );
+    if (!updatedItem) {
+      return res.status(404).json({ error: 'Item not found' });
+    }
+    res.json(updatedItem);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// Delete item
+router.delete('/:id', verifyToken, async (req, res) => {
+  try {
+    const deletedItem = await Item.findByIdAndDelete(req.params.id);
+    if (!deletedItem) {
+      return res.status(404).json({ error: 'Item not found' });
+    }
     res.status(204).end();
   } catch (err) {
     res.status(500).json({ error: err.message });

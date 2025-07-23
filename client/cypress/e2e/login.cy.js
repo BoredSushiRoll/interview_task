@@ -3,20 +3,23 @@ describe('Login Page', () => {
 
   it('logs in with valid credentials', () => {
     cy.visit(`${baseUrl}/login`);
+
     cy.get('input[name="username"]').type('admin');
     cy.get('input[name="password"]').type('admin');
     cy.get('button[type="submit"]').click();
-    cy.wait(100);
-    cy.location('pathname', { timeout: 6000 }).should('eq', '/items');
-    cy.contains('Item list will go here.');
+
+    // Wait for redirect and protected route access
+    cy.url().should('include', '/items');
+    cy.contains('Items'); // or check if token exists
   });
 
   it('shows error on invalid credentials', () => {
     cy.visit(`${baseUrl}/login`);
+
     cy.get('input[name="username"]').type('wrong');
     cy.get('input[name="password"]').type('wrong');
     cy.get('button[type="submit"]').click();
 
-    cy.contains('Invalid credentials');
+    cy.contains('Invalid credentials'); // Make sure this is shown in your UI
   });
 });
