@@ -31,29 +31,29 @@ The frontend also includes a simple UI for creating, editing, and deleting items
 
 ## Setup Instructions
 
-1. Clone the repo:
-   git clone https://github.com/BoredSushiRoll/interview_task.git
-   cd interview_task
+### 1. Clone the repo:
+    -git clone https://github.com/BoredSushiRoll/interview_task.git
+    -cd interview_task
 
-2. Install server dependencies:
-   cd server
-   npm install  
+### 2. Install server dependencies:
+    -cd server
+    -npm install  
 
-3. Create a .env file in /server:
-   JWT_SECRET=secret_token
-   JWT_EXPIRES_IN=1h
-   MONGO_URI=mongodb+srv://<your_mongoDB_link>
-   PORT=3001
+### 3. Create a .env file in /server:
+    -JWT_SECRET=secret_token
+    -JWT_EXPIRES_IN=1h
+    -MONGO_URI=mongodb+srv://<your_mongoDB_link>
+    -PORT=3001
 
-4. Start backend server:
-    npm run dev
+### 4. Start backend server:
+    -npm run dev
 
-5. Open a new terminal, install frontend dependencies:
-    cd client
-    npm install
+### 5. Open a new terminal, install frontend dependencies:
+    -cd client
+    -npm install
 
-6. Start fontend app:
-    npm run dev
+### 6. Start fontend app:
+    -npm run dev
     (Server runs on: http://localhost:3001)
     (Client runs on: http://localhost:5173)
 
@@ -61,10 +61,10 @@ The frontend also includes a simple UI for creating, editing, and deleting items
 ## How to Run the Tests
 1. UI Automation – Cypress
 
-Cypress tests are located in:
+### Cypress tests are located in:
     /client/cypress/e2e
 
-To run them:
+### To run them:
     cd client
     npx cypress open
 
@@ -129,5 +129,8 @@ Known Limitations
 
 ## Final Note
 
-    This was built from absolute zero experience in React, Node, Mongo, or JWT and it still works top to bottom. Auth is secured, routes are protected, and both UI and API are covered by automated tests. Everything is in place and can be extended from here. For more details refer to the technical documentation PDF present in "/Tech Document"
+    - This was built from absolute zero experience in React, Node, Mongo, or JWT and it still works top to bottom. 
+    - Auth is secured, routes are protected, and both UI and API are covered by automated tests. 
+    - Everything is in place and can be extended from here. 
+    - For more details refer to the technical documentation PDF present in "/Tech Document"
     
