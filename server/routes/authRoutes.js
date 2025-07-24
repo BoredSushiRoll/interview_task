@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const router = express.Router(); 
 
 router.post('/login', (req, res) => {
+  console.log('Login route HIT!')
   const { username, password } = req.body;
 
   if (username === 'admin' && password === 'admin') {
