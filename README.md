@@ -32,28 +32,28 @@ The frontend also includes a simple UI for creating, editing, and deleting items
 ## Setup Instructions
 
 ### 1. Clone the repo:
-    -git clone https://github.com/BoredSushiRoll/interview_task.git
-    -cd interview_task
+     git clone https://github.com/BoredSushiRoll/interview_task.git
+     cd interview_task
 
 ### 2. Install server dependencies:
-    -cd server
-    -npm install  
+     cd server
+     npm install  
 
 ### 3. Create a .env file in /server:
-    -JWT_SECRET=secret_token
-    -JWT_EXPIRES_IN=1h
-    -MONGO_URI=mongodb+srv://<your_mongoDB_link>
-    -PORT=3001
+     JWT_SECRET=secret_token
+     JWT_EXPIRES_IN=1h
+     MONGO_URI=mongodb+srv://<your_mongoDB_link>
+     PORT=3001
 
 ### 4. Start backend server:
-    -npm run dev
+     npm run dev
 
 ### 5. Open a new terminal, install frontend dependencies:
-    -cd client
-    -npm install
+     cd client
+     npm install
 
 ### 6. Start fontend app:
-    -npm run dev
+     npm run dev
     (Server runs on: http://localhost:3001)
     (Client runs on: http://localhost:5173)
 
@@ -118,7 +118,7 @@ Folder Structure (Simplified)
     /Tech Document                  # Location of technical documentation PDF
     /README.md                      # You're looking at it
 
-Known Limitations
+## Known Limitations
     - No user registration flow as login is hardcoded to admin / admin
 
     - UI is purely functional (no styling)
