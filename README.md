@@ -12,9 +12,9 @@ The frontend also includes a simple UI for creating, editing, and deleting items
 ## Technologies Used
 
 ### Frontend
-- React (with Vite)
-- Axios
-- Cypress (for UI test automation)
+    - React (with Vite)
+    - Axios
+    - Cypress (for UI test automation)
 
 ### Backend
 - Node.js + Express
@@ -30,8 +30,6 @@ The frontend also includes a simple UI for creating, editing, and deleting items
 ---
 
 ## Setup Instructions
-
-> Setup should take no more than 1-2 minutes.
 
 1. Clone the repo:
    git clone https://github.com/BoredSushiRoll/interview_task.git
@@ -112,7 +110,6 @@ API Test Coverage:
 
     - DELETE /items/:id (existing ID + garbage ID)
 
-
 Folder Structure (Simplified)
 
     /client                         # Frontend code (React + Cypress)
@@ -133,3 +130,4 @@ Known Limitations
 ## Final Note
 
     This was built from absolute zero experience in React, Node, Mongo, or JWT and it still works top to bottom. Auth is secured, routes are protected, and both UI and API are covered by automated tests. Everything is in place and can be extended from here. For more details refer to the technical documentation PDF present in "/Tech Document"
+    
