@@ -17,15 +17,15 @@ The frontend also includes a simple UI for creating, editing, and deleting items
     - Cypress (for UI test automation)
 
 ### Backend
-- Node.js + Express
-- MongoDB + Mongoose
-- JWT for authentication
-- CORS for cross-origin access
+    - Node.js + Express
+    - MongoDB + Mongoose
+    - JWT for authentication
+    - CORS for cross-origin access
 
 ### Testing Tools
-- Cypress (UI tests)
-- Postman (API tests)
-- Newman (optional CLI for API automation)
+    - Cypress (UI tests)
+    - Postman (API tests)
+    - Newman (optional CLI for API automation)
 
 ---
 
@@ -40,10 +40,10 @@ The frontend also includes a simple UI for creating, editing, and deleting items
    npm install  
 
 3. Create a .env file in /server:
-    JWT_SECRET=secret_token
-    JWT_EXPIRES_IN=1h
-    MONGO_URI=mongodb+srv://<your_mongoDB_link>
-    PORT=3001
+   JWT_SECRET=secret_token
+   JWT_EXPIRES_IN=1h
+   MONGO_URI=mongodb+srv://<your_mongoDB_link>
+   PORT=3001
 
 4. Start backend server:
     npm run dev
